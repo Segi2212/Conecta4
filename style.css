@@ -1,0 +1,70 @@
+:root {
+    --Fondo: rgb(83, 185, 233);
+    --Tablero: rgb(1, 147, 230);
+    --Tablero2: rgb(4, 135, 217);
+    --Tablero3: rgb(0, 103, 205);
+    --Sombra: rgba(0, 103, 205, 0.459);
+    --FRoja: rgb(252, 74, 74);
+    --BFRoja: rgb(233, 35, 35);
+    --SombraFRoja: rgba(233, 35, 35,.5);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {}
+
+.tablero {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.tiros{
+    width: 500px;
+    height: 70px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    align-items: center;
+}
+.tiros div{
+    width: calc(70% - 21px);
+    height: 70%;
+    background-color: var(--FRoja);
+    margin: auto;
+    border-radius: 50%;
+    box-shadow: inset 5px 5px 0 0 var(--SombraFRoja);
+    border: 4px solid var(--BFRoja);
+}
+
+.juego {
+    width: 500px;
+    height: 500px;
+    background-color: var(--Tablero);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    box-shadow: inset 10px 10px 10px 10px var(--Sombra);
+}
+
+.espacio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ficha {
+    height: 50%;
+    width: 50%;
+    background-color: white;
+    border-radius: 50%;
+    border-color: var(--Tablero3);
+    border: 3px solid var(--Tablero3);
+    box-shadow: inset 7px 5px 0 0 var(--Sombra);
+}
