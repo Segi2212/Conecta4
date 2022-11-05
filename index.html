@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,33 +8,22 @@
     <link rel="stylesheet" href="style.css">
     <title>Conecta 4</title>
 </head>
+
 <body>
-    <!--Para el tablero se crea el div "tablero" el cual va a contener cuadros de 5x5 -->
-    <div class="tablero">
-        <div class="tiros">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+    <!--Para el tablero se crea el div "tablero" el cual será un grid de 5x5-->
+    <div class="tablero" id="tablero">
+        <!--En la parte superior del tablero se colocan 5 fichas que cambiaran de color al ser cliqueadas y tendrán animación de caída a su casilla-->
+        <div class="tiros" id="tiros">
+            <div class="TIRO" id="T1" onclick="tirada(id)"></div>
+            <div class="TIRO" id="T2" onclick="tirada(id)"></div>
+            <div class="TIRO" id="T3" onclick="tirada(id)"></div>
+            <div class="TIRO" id="T4" onclick="tirada(id)"></div>
+            <div class="TIRO" id="T5" onclick="tirada(id)"></div>
         </div>
-        <div class="juego">
-            <div class="espacio">
-                <div class="ficha"></div>
-            </div>
-            <div class="espacio">
-                <div class="ficha"></div>
-            </div>
-            <div class="espacio">
-                <div class="ficha"></div>
-            </div>
-            <div class="espacio">
-                <div class="ficha"></div>
-            </div>
-            <div class="espacio">
-                <div class="ficha"></div>
-            </div>
+        <div class="juego" id="juego">
         </div>
     </div>
 </body>
+
 </html>
+<script src="script.js"></script>
