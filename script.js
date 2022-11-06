@@ -95,13 +95,12 @@ function caidaFicha(id, i, j) {
     tiro.style.transform = "translate(0," + i + "90px"
     tiro.style.transition = "linear 1.5s"
     tiro.style.opacity = "1"
-    setTimeout(mostrarTiro, 2100, i, j)
-    setTimeout(activarTiros, 2100, id)
+    setTimeout(mostrarTiro, 1600, i, j)
+    setTimeout(activarTiros, 1600, id)
 }
 
 function mostrarTiro(i, j) {
     tableroJuego[i][j] = colorTiro;
-    console.log(tableroJuego)
     var x = 1;
     for (let i = 0; i < tableroJuego.length; i++) {
         for (let j = 0; j < tableroJuego[i].length; j++) {
@@ -123,7 +122,13 @@ function activarTiros(id) {
     document.getElementById(id).style = "transform: translate(0, 0); transition: linear 0s;";
     for (let i = 1; i < numeroTiros + 1; i++) {
         let tiros = document.getElementById("T" + i);
-        tiros.style.pointerEvents = "visible";
+        if (tableroJuego[0][i - 1] == "b") {
+            tiros.style.pointerEvents = "visible";
+        }
+        else {
+            tiros.style.pointerEvents = "none";
+            tiros.style.display = "none"
+        }
     }
 
     switch (colorTiro) {
@@ -134,6 +139,7 @@ function activarTiros(id) {
             colorTiro = "a"
             break;
     }
+
     colorFichas()
 }
 
@@ -151,4 +157,41 @@ function fichasJugadas(x, color) {
             casilla.style.boxShadow = "inset 5px 5px 0 0 var(--SombraFRoja)"
             break;
     }
+    comprobarGanador(color)
+}
+
+function comprobarGanador(color) {
+    for (let i = 0; i < tableroJuego.length; i++) {
+        let arrayN = [];
+        for (let j = 0; j < tableroJuego[i].length; j++) {
+            if (tableroJuego[i][j] == color) {
+                arrayN.push(tableroJuego[i][j])
+                if (arrayN.length == 4) {
+                    ganador(color)
+                }
+            }
+            else {
+                arrayN = [];
+            }
+        }
+    }
+
+    for (let i = 0; i < numeroTiros; i++) {
+        let arrayN = [];
+        for (let j = 0; j < tableroJuego.length; j++) {
+            if (tableroJuego[j][i] == color) {
+                arrayN.push(tableroJuego[j][i])
+                if (arrayN.length == 4) {
+                    ganador(color)
+                }
+            }
+            else {
+                arrayN = [];
+            }
+        }
+    }
+}
+
+function ganador(color) {
+    location.reload(true)
 }
